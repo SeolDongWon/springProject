@@ -1,0 +1,15 @@
+package com.mire.biz.tv;
+
+public class BeanFactory {
+	public Object setBean(String beanName) {
+		switch (beanName) {
+		case "samsung":
+			break;
+		case "lg":
+			break;
+
+		}
+
+		return null;
+	}
+}
