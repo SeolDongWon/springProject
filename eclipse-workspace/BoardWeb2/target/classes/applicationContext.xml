@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- <bean id="ltv" class="com.mire.biz.tv.LgTV" scope="prototype" init-method="initMethod" destroy-method="destoryMethod"/> -->
+	<!-- <bean id="stv" class="com.mire.biz.tv.SamsungTV" lazy-init="true"/> content를 안넣으면 바로 "/>"닫아도 됌 -->
+	
+	
+	<bean id="ltv" class="com.mire.biz.tv.LgTV"/>
+	
+	<!-- 생성자에 매개변수로 객체 주입 -->
+	<bean id="stv" class="com.mire.biz.tv.SamsungTV">
+	<!-- content를 넣는 공간 -->
+		<constructor-arg ref="lgSpeaker"></constructor-arg>
+		<constructor-arg value="100000"></constructor-arg>	
+	</bean>
+	<bean id="sonySpeaker" class="com.mire.biz.tv.SonySpeaker" />
+	<bean id="lgSpeaker" class="com.mire.biz.tv.LgSpeaker" />
+
+</beans>
