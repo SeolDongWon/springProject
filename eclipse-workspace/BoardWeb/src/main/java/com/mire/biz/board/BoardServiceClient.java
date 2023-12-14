@@ -17,7 +17,7 @@ public class BoardServiceClient {
 		BoardVO vo = new BoardVO();
 		vo.setTitle("스프링");
 		vo.setWriter("SDW");
-		vo.setContent("안녕하스프링");
+		vo.setContent("안녕스프링");
 		boardService.insertBoard(vo);
 
 		// 글등록

@@ -1,9 +1,5 @@
 INDEX VERSION 1.131
 C:\DEV\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\922697669.index
 \BoardWeb\src\main\java
-C:\DEV\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2597632007.index
-\BoardWeb2\src\main\java
-C:\DEV\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\215584569.index
-\BoardWeb2\src\main\java
 C:\DEV\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2806564625.index
 \BoardWeb\src\main\java

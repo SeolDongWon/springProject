@@ -13,3 +13,5 @@
 1702536398655	Delete elements
 1702542909502	Extract interface 'BoardService'
 1702542934135	Move compilation unit
+1702555821069	Extract interface 'UserService'
+1702555838338	Move compilation unit
