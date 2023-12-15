@@ -16,6 +16,12 @@ public class UserDAO{
 	private Connection conn = null;
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
+	
+	
+
+	public UserDAO() {
+		System.out.println("UserDAO()");
+	}
 
 	// SQL명령어들
 	private final String USER_GET = "select * from users where id=? and password=?";
@@ -26,7 +32,7 @@ public class UserDAO{
 		UserVO user = null;
 
 		try {
-			System.out.println(">>>>JDBC로 getUder() 기능처리");
+			System.out.println(">>>>JDBC로 getUser() 기능처리");
 			conn = JDBCUtil.getConnection();
 			pstmt = conn.prepareStatement(USER_GET);
 			pstmt.setString(1, vo.getId());

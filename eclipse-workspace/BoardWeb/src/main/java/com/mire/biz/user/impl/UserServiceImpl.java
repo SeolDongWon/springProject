@@ -6,14 +6,13 @@ import org.springframework.stereotype.Service;
 import com.mire.biz.user.UserService;
 import com.mire.biz.user.UserVO;
 
-@Service("userService")
+@Service("userServiceImpl")
 public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserDAO userDAO;
-
-
-	public void setUserDAO(UserDAO userDAO) {
-		this.userDAO = userDAO;
+	
+	public UserServiceImpl() {
+		System.out.println("UserServiceImpl()");
 	}
 
 	@Override
@@ -21,6 +20,9 @@ public class UserServiceImpl implements UserService {
 		return userDAO.getUser(vo);
 	}
 	
-
+//	public void setUserDAO(UserDAO userDAO) {
+//		this.userDAO = userDAO;
+//	} 
+//	½Ì±ÛÅæ ¶§¹®¿¡ ÇÊ¿ä¾ø´Ù
 
 }
