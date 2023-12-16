@@ -1,8 +1,5 @@
 package com.mire.biz.tv;
 
-import org.springframework.stereotype.Component;
-
-
 public class LgTV implements TV {
 //	public void powOn() {
 //		System.out.println("LgTV power on");
@@ -17,11 +14,11 @@ public class LgTV implements TV {
 //		System.out.println("LgTV volume down");
 //	}
 	public LgTV() {
-		System.out.println("LgTV »ý¼º");
+		System.out.println("LgTV ï¿½ï¿½ï¿½ï¿½");
 	}
 	
 	public void initMethod() {
-		System.out.println("lgTV initÇÔ¼ö");
+		System.out.println("lgTV initï¿½Ô¼ï¿½");
 	}
 	
 	@Override
@@ -43,7 +40,7 @@ public class LgTV implements TV {
 	}
 	
 	public void destoryMethod() {
-		System.out.println("lgTV destoryÇÔ¼ö");
+		System.out.println("lgTV destoryï¿½Ô¼ï¿½");
 	}
 
 }

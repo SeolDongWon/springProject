@@ -1,14 +1,12 @@
 package com.mire.biz.common;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Service;
 
 //<bean id="log" class="com.mire.biz.common.LogAdvice"></bean>
-//	À§¿Í ¾Æ·¡´Â ¿ªÇÒÀÌ °°´Ù 
+//	ìœ„ì™€ ì•„ë˜ëŠ” ì—­í• ì´ ê°™ë‹¤ 
 @Service
 //<aop:aspect ref="log4">
 @Aspect
@@ -29,6 +27,6 @@ public class LogAdvice {
 		String methodName = jp.getSignature().getName();
 		Object[]args = jp.getArgs();
 		Object obj = jp.getTarget();
-		System.out.println("[LogAdviceLog] ºñÁö´Ï½º ·ÎÁ÷ ¼öÇà ÈÄ µ¿ÀÛ "+methodName+" ¸Å°³º¯¼ö"+args[0].toString()+" Å¬·¡½º"+obj.toString());
+		System.out.println("[LogAdviceLog] ë¹„ì§€ë‹ˆìŠ¤ ë¡œì§ ìˆ˜í–‰ í›„ ë™ì‘ "+methodName+" ë§¤ê°œë³€ìˆ˜"+args[0].toString()+" í´ë˜ìŠ¤"+obj.toString());
 	}
 }

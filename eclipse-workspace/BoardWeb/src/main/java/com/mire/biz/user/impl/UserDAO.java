@@ -12,7 +12,7 @@ import com.mire.biz.user.UserVO;
 
 @Repository("userDAO")
 public class UserDAO{
-	// JDBC °ü·Ãº¯¼ö
+	// JDBC ê´€ë ¨ë³€ìˆ˜
 	private Connection conn = null;
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
@@ -23,16 +23,16 @@ public class UserDAO{
 		System.out.println("UserDAO()");
 	}
 
-	// SQL¸í·É¾îµé
+	// SQLëª…ë ¹ì–´ë“¤
 	private final String USER_GET = "select * from users where id=? and password=?";
 
-	// CRUD ±â´ÉÀÇ ¸Þ¼Òµå ±¸Çö
-	// È¸¿øµî·Ï
+	// CRUD ê¸°ëŠ¥ì˜ ë©”ì†Œë“œ êµ¬í˜„
+	// íšŒì›ë“±ë¡
 	public UserVO getUser(UserVO vo) {
 		UserVO user = null;
 
 		try {
-			System.out.println(">>>>JDBC·Î getUser() ±â´ÉÃ³¸®");
+			System.out.println(">>>>JDBCë¡œ getUser() ê¸°ëŠ¥ì²˜ë¦¬");
 			conn = JDBCUtil.getConnection();
 			pstmt = conn.prepareStatement(USER_GET);
 			pstmt.setString(1, vo.getId());

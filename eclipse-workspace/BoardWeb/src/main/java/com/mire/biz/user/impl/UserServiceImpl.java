@@ -23,6 +23,5 @@ public class UserServiceImpl implements UserService {
 //	public void setUserDAO(UserDAO userDAO) {
 //		this.userDAO = userDAO;
 //	} 
-//	½Ì±ÛÅæ ¶§¹®¿¡ ÇÊ¿ä¾ø´Ù
-
+//	bean propertyëŠ” setì´ ìˆì–´ì•¼í•œë‹¤
 }

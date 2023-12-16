@@ -3,7 +3,6 @@ package com.mire.biz.common;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -21,13 +20,13 @@ public class AfterThrowingAdvice {
 		String methodName=jp.getSignature().getName();
 		
 		if(exception instanceof NumberFormatException) {
-			System.out.println("[afterThrowingLog] ¿¹¿ÜÃ³¸® µ¿ÀÛ ÇÔ¼ö¸í : "+methodName+" NumberFormatException ");
+			System.out.println("[afterThrowingLog] ì˜ˆì™¸ì²˜ë¦¬ ë™ì‘ í•¨ìˆ˜ëª… : "+methodName+" NumberFormatException ");
 		}else if(exception instanceof IllegalArgumentException) {
-			System.out.println("[afterThrowingLog] ¿¹¿ÜÃ³¸® µ¿ÀÛ ÇÔ¼ö¸í : "+methodName+" IllegalArgumentException ");
+			System.out.println("[afterThrowingLog] ì˜ˆì™¸ì²˜ë¦¬ ë™ì‘ í•¨ìˆ˜ëª… : "+methodName+" IllegalArgumentException ");
 		}else if(exception instanceof Exception) {
-			System.out.println("[afterThrowingLog] ¿¹¿ÜÃ³¸® µ¿ÀÛ ÇÔ¼ö¸í : "+methodName+" Exception ");
+			System.out.println("[afterThrowingLog] ì˜ˆì™¸ì²˜ë¦¬ ë™ì‘ í•¨ìˆ˜ëª… : "+methodName+" Exception ");
 		}else {
-			System.out.println("[afterThrowingLog] ¿¹¿ÜÃ³¸® µ¿ÀÛ ÇÔ¼ö¸í : "+methodName+" ½Å¼ÓÇÏ°Ô °ËÅä¹Ù¶÷ ");
+			System.out.println("[afterThrowingLog] ì˜ˆì™¸ì²˜ë¦¬ ë™ì‘ í•¨ìˆ˜ëª… : "+methodName+" ì‹ ì†í•˜ê²Œ ê²€í† ë°”ëŒ ");
 		}
 	}
 }

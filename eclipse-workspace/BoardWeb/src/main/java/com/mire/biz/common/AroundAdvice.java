@@ -24,7 +24,7 @@ public class AroundAdvice {
 		Object obj =pjp.proceed();
 		sW.stop();
 		String funcName = pjp.getSignature().getName();
-		System.out.println("[aroundLog stop] "+funcName+" ¼öÇà½Ã°£ : "+sW.getLastTaskTimeMillis()+"ms");
+		System.out.println("[aroundLog stop] "+funcName+" ì‹¤í–‰ì‹œê°„ : "+sW.getLastTaskTimeMillis()+"ms");
 		return obj;
 	}
 }

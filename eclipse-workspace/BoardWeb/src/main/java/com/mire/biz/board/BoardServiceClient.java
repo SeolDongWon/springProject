@@ -8,20 +8,20 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 public class BoardServiceClient {
 
 	public static void main(String[] args) {
-		// ½ºÇÁ¸µÄÁÅ×ÀÌ³Ê °´Ã¼ »ı¼º
+		// ìŠ¤í”„ë§ì»¨í…Œì´ë„ˆ ê°ì²´ ìƒì„±
 		AbstractApplicationContext beanFactory = new GenericXmlApplicationContext("applicationContext.xml");
 
 		BoardService boardService = (BoardService) beanFactory.getBean("boardService");
 
-		// ±Û µî·Ï
+		// ê¸€ ë“±ë¡
 		BoardVO vo = new BoardVO();
 		vo.setSeq(1);
-		vo.setTitle("¿À¶óÅ¬33");
-		vo.setWriter("SD33");
-		vo.setContent("¾È³ç¿À¶óÅ¬33");
+		vo.setTitle("ê°€ì…ì¸ì‚¬");
+		vo.setWriter("ê´€ë¦¬ì");
+		vo.setContent("ì•ˆë…•í•˜ì„¸ìš”");
 		boardService.insertBoard(vo);
 
-		// ±Ûµî·Ï
+		// ê¸€ë“±ë¡
 		List<BoardVO> list = boardService.getBoardList(vo);
 		for (BoardVO data : list) {
 			System.out.println("===" + data.toString());

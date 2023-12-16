@@ -1,21 +1,17 @@
 package com.mire.biz.tv;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
-
 public class SamsungTV implements TV {
-	//¸â¹öº¯¼ö
+	//ë©¤ë²„ë³€ìˆ˜
 
 	private Speaker speaker;
 	private int price;
 	
 	public SamsungTV() {
-		System.out.println("SamsungTV() »ı¼º");
+		System.out.println("SamsungTV() ìƒì„±");
 	}
 	
 //	public SamsungTV(Speaker speaker, int price) {
-//		System.out.println("SamsungTV(SonySpeaker) »ı¼º");
+//		System.out.println("SamsungTV(SonySpeaker) ìƒì„±");
 //		this.speaker = speaker;
 //		this.price = price;
 //	}
@@ -41,13 +37,13 @@ public class SamsungTV implements TV {
 
 
 	public void setSpeaker(Speaker speaker) {
-		System.out.println("setSpeaker È£Ãâ ");
+		System.out.println("setSpeaker í˜¸ì¶œ ");
 		this.speaker = speaker;
 	}
 
 
 	public void setPrice(int price) {
-		System.out.println("setPrice È£Ãâ ");
+		System.out.println("setPrice í˜¸ì¶œ ");
 		this.price = price;
 	}
 	

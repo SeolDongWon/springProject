@@ -5,7 +5,6 @@ import java.util.Date;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Service;
 
 import com.mire.biz.user.UserVO;
@@ -27,16 +26,16 @@ public class AfterReturningAdvice {
 		Object obj = jp.getTarget();
 		Date date = new Date();
 
-		// ¸®ÅÏ°ª °¡Áö°í È®ÀÎÇÒ ¼ö ÀÖ´Ù.
+		// ë¦¬í„´ê°’ ê°€ì§€ê³  í™•ì¸í•  ìˆ˜ ìˆë‹¤.
 		if (returnObj instanceof UserVO) {
 			UserVO userVO = (UserVO) returnObj;
 			if (userVO.getRole().equals("admin")) {
-				System.out.println(userVO.getName() + " °ü¸®ÀÚ´Ô È¯¿µÇÕ´Ï´Ù." + date.toString());
+				System.out.println(userVO.getName() + " ê´€ë¦¬ìë‹˜ í™˜ì˜í•©ë‹ˆë‹¤." + date.toString());
 			} else {
-				System.out.println(userVO.getName() + " È¸¿ø´Ô ¹æ¹®" + date.toString());
+				System.out.println(userVO.getName() + " íšŒì›ë‹˜ ë°©ë¬¸" + date.toString());
 			}
 		}
-		System.out.println("[afterReturnLog] ºñÁö´Ï½º ·ÎÁ÷ ¼öÇà ÈÄ ¸®ÅÏ µ¿ÀÛ ¸Ş¼Òµå : " + methodName + " ¸Å°³º¯¼ö : " + args[0].toString()
-				+ " Å¬·¡½º : " + obj.toString());
+		System.out.println("[afterReturnLog] ë¹„ì§€ë‹ˆìŠ¤ ë¡œì§ ìˆ˜í–‰ í›„ ë¦¬í„´ ë™ì‘ ë©”ì†Œë“œ : " + methodName + " ë§¤ê°œë³€ìˆ˜ : " + args[0].toString()
+				+ " í´ë˜ìŠ¤ : " + obj.toString());
 	}
 }

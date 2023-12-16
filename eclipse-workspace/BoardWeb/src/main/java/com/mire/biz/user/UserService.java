@@ -2,8 +2,8 @@ package com.mire.biz.user;
 
 public interface UserService {
 
-	// CRUD ±â´ÉÀÇ ¸Ş¼Òµå ±¸Çö
-	// È¸¿øµî·Ï
+	// CRUD ê¸°ëŠ¥ì˜ ë©”ì†Œë“œ êµ¬í˜„
+	// íšŒì›ë“±ë¡
 	UserVO getUser(UserVO vo);
 
 }
