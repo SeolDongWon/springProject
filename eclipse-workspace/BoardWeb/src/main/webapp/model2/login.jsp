@@ -1,5 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
+
+<c:if test="${insertUserFlag==1 }">
+	<script>
+		alert("가입성공");
+	</script>
+</c:if>
+<c:if test="${insertUserFlag==-1 }">
+	<script>
+		alert("가 입 실 패");
+	</script>
+</c:if>
+<c:set var="insertUserFlag" value="0" scope="session"></c:set>
 <!DOCTYPE html>
 <html>
 <head>

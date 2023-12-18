@@ -15,12 +15,14 @@ commit;
 CREATE TABLE USERS(
 ID VARCHAR2(8) PRIMARY KEY,
 PASSWORD VARCHAR2(8),
-NAME VARCHAR2(20), ROLE VARCHAR2(5)
+NAME VARCHAR2(20), 
+ROLE VARCHAR2(5)
 );
 INSERT INTO USERs VALUES('test', 'test123','관리자','Admin');
 INSERT INTO USERs  VALUES('user1','user1','홍길동', 'User');
 commit;
 select * from users;
+insert into users values('admin','11111','tt','ff');
 
 select * from users where id='test' and password='test123';
-select * from users where id='test' and password='test123';
+select * from users where id='seol1';

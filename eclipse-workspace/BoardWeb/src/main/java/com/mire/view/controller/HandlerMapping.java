@@ -18,6 +18,8 @@ public class HandlerMapping {
 		mappings.put("/updateBoard.do", new UpdateBoardController());
 		mappings.put("/deleteBoard.do", new DeleteBoardController());
 		mappings.put("/logout.do", new LogoutController());
+		mappings.put("/idDoubleCheck.do", new IdDoubleCheckController());
+		mappings.put("/insertUserController.do", new InsertUserController());
 	}
 
 	public Controller getController(String path) {

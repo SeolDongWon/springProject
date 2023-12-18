@@ -41,6 +41,7 @@ public class DispatcherServlet extends HttpServlet {
 		String path = uri.substring(uri.lastIndexOf("/"));
 		request.setCharacterEncoding("UTF-8");
 		System.out.println(path);
+		System.out.println(request.getParameter("id"));
 		
 		// 2 해당 controller를 진행한다
 		Controller controller = handlerMapping.getController(path);
