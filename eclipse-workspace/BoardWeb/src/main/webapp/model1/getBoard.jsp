@@ -38,10 +38,9 @@ BoardVO board = boardDAO.getBoard(vo);
 				<td bgcolor="orange">작성자</td>
 				<td align="left"><%=board.getWriter()%></td>
 			</tr>
-				<tr>
+			<tr>
 				<td bgcolor="orange">내용</td>
-				<td align="left"><textarea name="content" rows="10" cols="40">
-				<%=board.getContent()%></textarea></td>
+				<td align="left"><textarea name="content" cols="40" rows="10"><%=board.getContent()%></textarea></td>
 			</tr>
 			<tr>
 				<td bgcolor="orange">등록일</td>
