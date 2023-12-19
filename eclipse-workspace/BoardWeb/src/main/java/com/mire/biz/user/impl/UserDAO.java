@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import org.springframework.stereotype.Repository;
 
@@ -11,13 +12,11 @@ import com.mire.biz.common.JDBCUtil;
 import com.mire.biz.user.UserVO;
 
 @Repository("userDAO")
-public class UserDAO{
+public class UserDAO {
 	// JDBC 관련변수
 	private Connection conn = null;
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
-	
-	
 
 	public UserDAO() {
 		System.out.println("UserDAO()");
@@ -26,7 +25,11 @@ public class UserDAO{
 	// SQL명령어들
 	private final String USER_GET = "select * from users where id=? and password=?";
 	private final String ID_DOUBLE = "select * from users where id=?";
-	private final String USER_INSERT="insert into users(id, password, name, role) values(?,?,?,?)";
+	private final String USER_INSERT = "insert into users(id, password, name, role) values(?,?,?,?)";
+	private final String USER_LIST = "select * from users";
+	private final String USER_UPDATE = "update users set password=?, name=?, role=? where id=?";
+	private final String USER_DELETE = "delete from users where id=? and password=?";
+
 	// CRUD 기능의 메소드 구현
 	// 회원등록
 	public UserVO getUser(UserVO vo) {
@@ -44,7 +47,7 @@ public class UserDAO{
 				user.setId(rs.getString("id"));
 				user.setPassword(rs.getString("password"));
 				user.setName(rs.getNString("name"));
-				user.setRole("role");
+				user.setRole(rs.getNString("role"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -53,10 +56,10 @@ public class UserDAO{
 		}
 		return user;
 	}
-	
+
 	public int idDoubleCheck(UserVO vo) {
 		System.out.println("idDoubleCheck: " + vo.getId());
-		
+
 		int idCheck = 0;
 
 		try {
@@ -84,10 +87,10 @@ public class UserDAO{
 				e.printStackTrace();
 			}
 		}
-		System.out.println("idCheck : "+idCheck);
+		System.out.println("idCheck : " + idCheck);
 		return idCheck;
 	}
-	
+
 	public int insertUser(UserVO vo) {
 		int insertUserFlag = 0;
 
@@ -101,8 +104,8 @@ public class UserDAO{
 			pstmt.setString(4, vo.getRole());
 			if (pstmt.executeUpdate() > 0) {
 				insertUserFlag = 1;
-			}else {
-				insertUserFlag= -1;
+			} else {
+				insertUserFlag = -1;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -110,5 +113,108 @@ public class UserDAO{
 			JDBCUtil.close(rs, pstmt, conn);
 		}
 		return insertUserFlag;
+	}
+
+	public synchronized ArrayList<UserVO> getUserList(UserVO vo) {
+		ArrayList<UserVO> arrList = new ArrayList<UserVO>();
+		UserVO user = null;
+		try {
+			System.out.println(">>>>JDBC getUserList()");
+			conn = JDBCUtil.getConnection();
+			pstmt = conn.prepareStatement(USER_LIST);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				user = new UserVO();
+				user.setId(rs.getString("id"));
+				System.out.println(rs.getString("id"));
+				user.setPassword(rs.getString("password"));
+				user.setName(rs.getString("name"));
+				user.setRole(rs.getString("role"));
+				arrList.add(user);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return arrList;
+	}
+
+	public synchronized int updateUser(UserVO vo) {
+		int updateUserFlag = 0;
+
+		try {
+			System.out.println(">>>>JDBC getUserList()");
+			conn = JDBCUtil.getConnection();
+			pstmt = conn.prepareStatement(USER_UPDATE);
+			pstmt.setString(1, vo.getPassword());
+			pstmt.setString(2, vo.getName());
+			pstmt.setString(3, vo.getRole());
+			pstmt.setString(4, vo.getId());
+			if (pstmt.executeUpdate() > 0) {
+				updateUserFlag = 1;
+			} else {
+				updateUserFlag = -1;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return updateUserFlag;
+	}
+
+	public int deleteUser(UserVO vo) {
+		System.out.println(vo.getId());
+		System.out.println(vo.getPassword());
+		int deleteUserFlag = 0; // 결과치
+
+		try {
+			conn = JDBCUtil.getConnection();
+			pstmt = conn.prepareStatement(USER_DELETE);
+			pstmt.setString(1, vo.getId());
+			pstmt.setString(2, vo.getPassword());
+			if (pstmt.executeUpdate() > 0) {
+				deleteUserFlag = 1;
+			} else {
+				deleteUserFlag = -1;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return deleteUserFlag;
 	}
 }

@@ -26,3 +26,6 @@ insert into users values('admin','11111','tt','ff');
 
 select * from users where id='test' and password='test123';
 select * from users where id='seol1';
+update users set role='User' where id='seol1';
+
+select * from users;

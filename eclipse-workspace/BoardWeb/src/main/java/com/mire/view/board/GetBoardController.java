@@ -1,33 +1,25 @@
 package com.mire.view.board;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mire.biz.board.BoardVO;
 import com.mire.biz.board.impl.BoardDAO;
-import com.mire.view.controller.Controller;
+//@Controller
+public class GetBoardController{
+	
+//	@RequestMapping(value = "/getBoard.do")
+	public String getBoard(BoardVO vo,BoardDAO boardDAO, Model model ) {
+		System.out.println("getBoard");
 
-public class GetBoardController implements Controller {
-
-	@Override
-	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
-		System.out.println("GetBoardController");
-
-		// 1 검색할 게시글 번호 추출
-		String seq = request.getParameter("seq");
-
-		// 2 DB 연동 처리
-		BoardVO vo = new BoardVO();
-		vo.setSeq(Integer.parseInt(seq));
-
-		BoardDAO boardDAO = new BoardDAO();
 		BoardVO board = boardDAO.getBoard(vo);
 
-		// 3 검색 결과를 세션에 저장하고 목록 화면으로 이동한다.
-		HttpSession session = request.getSession();
-		session.setAttribute("board", board);
-		
+		model.addAttribute("board",board);
+		// session 대신 mav.addObject를 사용
+		// mav.addObject는 request.setAttribute와 같은 기능
+		// redirect시 request가 사라지기 때문에 forward로 전송한다.
+		// 3 화면 네비게이션
 		return "getBoard";
 
 	}

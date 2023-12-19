@@ -1,16 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JoinForm.jsp</title>
-<!-- addressAPI -->
-<script
-	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<title>회원가입</title>
+
 </head>
 
 <body>
@@ -100,6 +96,7 @@ input, select {
 	color: red;
 	width: 200px;
 }
+
 </style>
 <script>
 	function joinSend() {
@@ -121,30 +118,18 @@ input, select {
 		}
 	}
 
-	function focusOn(id) {
-		document.getElementById(id).classList.add('focusBlack');
+	function focusOn(tagId) {
+		document.getElementById(tagId).classList.add('focusBlack');
 	}
-	function focusOff(id) {
-		document.getElementById(id).classList.remove('focusBlack');
-		/* document.getElementById(id).classList.add('focusRed'); */
+	function focusOff(tagId) {
+		document.getElementById(tagId).classList.remove('focusBlack');
 	}
 
-	/* function idCheck() {
-		let inputId = document.joinForm.id.value;
-		let regId = /^[a-z0-9_-]{4,10}$/;
-		if (!regId.test(inputId)) {
-			document.getElementById('idError').innerHTML = "*4~10자의 영문 소문자, 숫자 _ - 만 사용 가능합니다.";
-			return false;
-		} else {
-			document.getElementById('idError').innerHTML = "";
-			document.getElementById('id').classList.remove('focusRed');
-			return true;
-		}
-	} */
 	function idCheck() {
 		let id = document.joinForm.id.value;
 		let regId = /^[a-z0-9_-]{4,10}$/;
-			document.getElementById('id').classList.add('focusRed');
+		document.getElementById('id').classList.add('focusRed');
+		document.getElementById('idError').style.color = ""
 		if (!regId.test(id)) {
 			document.getElementById('idError').innerHTML = "*4~10자의 영문 소문자, 숫자 _ - 만 사용 가능합니다.";
 			return false;
