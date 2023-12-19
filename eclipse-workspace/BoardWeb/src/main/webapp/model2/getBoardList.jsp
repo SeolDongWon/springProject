@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div align="center">
-		<h1>글 목록</h1>
+		<h1>글 목록</h1> 
 		<h3>
 			${user.name}님 환영합니다....<br>
 		<a href="logout.do">Log-out</a><br>

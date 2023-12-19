@@ -15,7 +15,7 @@
 <c:if test="${updateUserFlag==1 }">
 	<script>
 		alert("수정성공");
-	</script>
+	</script> 
 </c:if>
 <c:if test="${updateUserFlag==-1 }">
 	<script>

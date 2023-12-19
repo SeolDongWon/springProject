@@ -11,7 +11,7 @@ insert into myboard(seq, title, writer, content) values ((select nvl(max(seq), 0
 
 select * from myboard;
 commit;
-
+delete from users;
 CREATE TABLE USERS(
 ID VARCHAR2(8) PRIMARY KEY,
 PASSWORD VARCHAR2(8),

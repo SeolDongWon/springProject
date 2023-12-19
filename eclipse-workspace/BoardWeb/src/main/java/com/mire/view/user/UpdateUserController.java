@@ -10,11 +10,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.mire.biz.user.UserVO;
 import com.mire.biz.user.impl.UserDAO;
-@Controller
+//@Controller
 public class UpdateUserController{
-	@RequestMapping(value = "/updateUserController.do")
+//	@RequestMapping(value = "/updateUserController.do")
 	public ModelAndView updateUserController(HttpServletRequest request, HttpServletResponse response) {
-		System.out.println("UpdateUserController");
+		System.out.println("updateUserController");
 		// 1 사용자 입력정보 추출
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");

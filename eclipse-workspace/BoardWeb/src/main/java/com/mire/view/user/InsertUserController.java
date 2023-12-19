@@ -9,9 +9,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.mire.biz.user.UserVO;
 import com.mire.biz.user.impl.UserDAO;
-@Controller
+//@Controller
 public class InsertUserController {
-	@RequestMapping(value = "/insertUserController.do")
+//	@RequestMapping(value = "/insertUserController.do")
 	public ModelAndView insertUserController(HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("InsertUserController");
 		// 1 사용자 입력정보 추출

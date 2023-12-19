@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<c:choose>
+<c:choose> 
 	<c:when test="${idCheck==0}">
 		<script>
 			opener.document.getElementById('idError').innerHTML = "사용 가능"

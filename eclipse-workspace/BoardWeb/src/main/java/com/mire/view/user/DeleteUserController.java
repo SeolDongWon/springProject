@@ -10,9 +10,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.mire.biz.user.UserVO;
 import com.mire.biz.user.impl.UserDAO;
-@Controller
+//@Controller
 public class DeleteUserController {
-	@RequestMapping(value = "/deleteUserController.do")
+//	@RequestMapping(value = "/deleteUserController.do")
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("DeleteUserController");
 		// 1 사용자 입력정보 추출

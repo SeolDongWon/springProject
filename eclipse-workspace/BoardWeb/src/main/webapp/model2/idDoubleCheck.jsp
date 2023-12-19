@@ -8,7 +8,7 @@
 			opener.document.getElementById('idError').innerHTML = "사용 가능"
 			opener.document.getElementById('idError').style.color = "blue"
 			opener.document.getElementById('id').classList.remove('focusRed');
-		</script>
+		</script> 
 	</c:when>
 	<c:otherwise>
 		<script>

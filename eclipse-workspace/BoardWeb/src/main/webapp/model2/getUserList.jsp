@@ -9,7 +9,7 @@
 <body>
 	<table>
 		<tr>
-			<td><strong>id</strong></td>
+			<td><strong>id</strong></td> 
 			<td><strong>password</strong></td>
 			<td><strong>name</strong></td>
 			<td><strong>role</strong></td>

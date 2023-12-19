@@ -11,9 +11,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.mire.biz.user.UserVO;
 import com.mire.biz.user.impl.UserDAO;
-@Controller
+//@Controller
 public class GetUserListController{
-	@RequestMapping(value = "/getUserList.do")
+//	@RequestMapping(value = "/getUserList.do")
 	public ModelAndView getUserList(HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("GetUserListController");
 

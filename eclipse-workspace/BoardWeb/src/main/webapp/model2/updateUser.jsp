@@ -10,7 +10,7 @@
 
 </head>
 
-<body>
+<body> 
 	<div class="container">
 		<div class="inner">
 			<form action="updateUserController.do" name="joinForm" method="post">
