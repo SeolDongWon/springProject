@@ -7,7 +7,7 @@
 	</script>
 </c:if>
 <c:if test="${deleteUserFlag==-1 }">
-	<script>
+	<script> 
 		alert("탈 퇴 실 패");
 	</script>
 </c:if>

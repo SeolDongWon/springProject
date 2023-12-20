@@ -61,14 +61,43 @@
  -->
 
 
-<!-- list set map properties에서 value 꺼내기 <bean id="collectionBean" class="com.mire.ioc.injection.CollectionBean"> 
-	<property name="addressList"> <list> <value>서울시 강남구 역삼동</value> <value>서울시 
-	성동구 행당동</value> </list> </property> <property name="addressSet"> <set> <value>서울</value> 
-	<value>부산</value> </set> </property> <property name="addressMap"> <map> <entry> 
-	<key> <value>서울</value> </key> <value>추워</value> </entry> <entry> <key> <value>부산</value> 
-	</key> <value>따뜻해</value> </entry> </map> </property> <property name="addressProps"> 
-	<props> <prop key="추우면"> 좋아</prop> <prop key="따뜻하면"> 더좋아</prop> </props> 
-	</property> </bean> -->
+<!-- list set map properties에서 value 꺼내기 
+<bean id="collectionBean" class="com.mire.ioc.injection.CollectionBean"> 
+	<property name="addressList"> 
+		<list> 
+			<value>서울시 강남구 역삼동</value>
+			<value>서울시	성동구 행당동</value> 
+		</list> 
+	</property> 
+	<property name="addressSet"> 
+		<set> 
+			<value>서울</value> 
+			<value>부산</value> 
+		</set> 
+	</property> 
+	<property name="addressMap"> 
+		<map> 
+			<entry> 
+				<key> 
+					<value>서울</value> 
+				</key>
+					<value>추워</value> 
+			</entry> 
+			<entry> 
+				<key> 
+					<value>부산</value> 
+				</key> 
+					<value>따뜻해</value> 
+			</entry> 
+		</map> 
+	</property> 
+	<property name="addressProps"> 
+		<props> 
+			<prop key="추우면"> 좋아</prop> 
+			<prop key="따뜻하면"> 더좋아</prop> 
+		</props> 
+	</property> 
+</bean> -->
 
 
 <!-- <bean id="ltv" class="com.mire.biz.tv.LgTV" scope="prototype" init-method="initMethod" 

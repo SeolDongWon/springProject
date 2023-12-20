@@ -6,7 +6,7 @@
 		alert("탈퇴성공");
 	</script>
 </c:if> 
-<c:if test="${deleteUserFlag==-1 }">
+<c:if test="${deleteUserFlag==-1 }"> 
 	<script>
 		alert("탈 퇴 실 패");
 	</script>

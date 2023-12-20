@@ -7,7 +7,7 @@
 <title>GetUserList</title> 
 </head>
 <body>
-	<table>
+	<table> 
 		<tr>
 			<td><strong>id</strong></td>
 			<td><strong>password</strong></td>

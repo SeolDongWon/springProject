@@ -9,7 +9,7 @@
 <title>글목록</title>
 </head>
 <body>
-	<div align="center">
+	<div align="center"> 
 		<h1>글 목록</h1> 
 		<h3>
 			${user.name}님 환영합니다....<br>

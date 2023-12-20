@@ -9,7 +9,7 @@
 			opener.document.getElementById('idError').style.color = "blue"
 			opener.document.getElementById('id').classList.remove('focusRed');
 		</script>
-	</c:when>
+	</c:when> 
 	<c:otherwise>
 		<script>
 			opener.document.getElementById('idError').innerHTML = "id중복! 사용 불가!"

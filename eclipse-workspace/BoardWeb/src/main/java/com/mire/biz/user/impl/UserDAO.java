@@ -58,7 +58,6 @@ public class UserDAO {
 	}
 
 	public int idDoubleCheck(UserVO vo) {
-		System.out.println("idDoubleCheck: " + vo.getId());
 
 		int idCheck = 0;
 
@@ -87,7 +86,6 @@ public class UserDAO {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("idCheck : " + idCheck);
 		return idCheck;
 	}
 
@@ -186,11 +184,10 @@ public class UserDAO {
 	}
 
 	public int deleteUser(UserVO vo) {
-		System.out.println(vo.getId());
-		System.out.println(vo.getPassword());
 		int deleteUserFlag = 0; // 결과치
 
 		try {
+			System.out.println(">>>>JDBC deleteUser()");
 			conn = JDBCUtil.getConnection();
 			pstmt = conn.prepareStatement(USER_DELETE);
 			pstmt.setString(1, vo.getId());
