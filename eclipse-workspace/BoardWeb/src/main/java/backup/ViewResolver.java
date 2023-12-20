@@ -1,4 +1,4 @@
-package com.mire.view.controller;
+package backup;
 
 public class ViewResolver {
 	public String prefix;

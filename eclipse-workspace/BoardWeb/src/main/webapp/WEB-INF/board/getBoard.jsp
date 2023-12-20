@@ -11,7 +11,7 @@
 	<h1>글상세</h1>
 	<a href="logout.do">Log-out</a>
 	<hr>
-	<form action="updateBoard.do" method="post">
+	<form action="updateBoard.do" method="post" name="updateBoardForm">
 		<input name="seq" type="hidden" value="${board.seq}"/>
 		<table border="1" style="padding: 0px;border-spacing: 0px">
 			<tr>
@@ -36,7 +36,7 @@
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
-					<input type="submit" value="글수정"/>
+					<input type="button" value="글수정" onclick="updateBoardCheck()"/>
 				</td>
 			</tr>
 		</table>
@@ -47,4 +47,15 @@
 	<a href="getBoardList.do">글목록</a>
 </div>
 </body>
+<script type="text/javascript">
+	function updateBoardCheck() {
+		var frm = document.updateBoardForm;
+
+		if (frm.title.value == "" || frm.content.value == "") {
+			alert("빈칸있어요");
+		} else {
+			frm.submit();
+		}
+	}
+</script>
 </html>

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.mire.biz.board.BoardService;
 import com.mire.biz.board.BoardVO;
 
-@Service("boardService")
+@Service("boardService") // "boardService"에 오토와이어
 public class BoardServiceImpl implements BoardService {
 	@Autowired
 	private BoardDAO boardDAO;
@@ -21,9 +21,9 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public void insertBoard(BoardVO vo) {
-		if(vo.getSeq()==0) {
-			throw new IllegalArgumentException("0번 글은 등록할 수 없습니다.");
-		}
+//		if(vo.getSeq()==0) {
+//			throw new IllegalArgumentException("0번 글은 등록할 수 없습니다.");
+//		}
 		//로깅
 //		log.printLoging();
 //		System.out.println("공통-비지니스로직 수행 전 동작");

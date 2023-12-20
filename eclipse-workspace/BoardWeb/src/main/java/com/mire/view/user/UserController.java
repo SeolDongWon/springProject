@@ -1,18 +1,36 @@
 package com.mire.view.user;
 
 import java.util.ArrayList;
+
 import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 import com.mire.biz.user.UserVO;
 import com.mire.biz.user.impl.UserDAO;
 
 @Controller
 public class UserController {
 	
-	@RequestMapping(value = "/login.do")
+	@RequestMapping(value = "/login.do", method=RequestMethod.GET)
+	public String loginView(@ModelAttribute("user") UserVO vo) {
+		System.out.println("loginView");
+		vo.setId("test");
+		vo.setPassword("test123");
+		return"login";
+	}
+	
+	@RequestMapping(value = "/login.do", method=RequestMethod.POST)
 	public String login(UserVO vo, UserDAO userDAO,HttpSession session) {
+		System.out.println("login");
+		if(vo.getId()==null||vo.getId().equals("")) {
+			throw new IllegalArgumentException("아디입력하세요");
+		}
+		
 		UserVO user = userDAO.getUser(vo);
 		if (user != null) {
 			session.setAttribute("user", user);
@@ -33,14 +51,14 @@ public class UserController {
 		int updateUserFlag = userDAO.updateUser(vo);
 		session.invalidate();
 		model.addAttribute("updateUserFlag", updateUserFlag);
-		return "login";
+		return "alertView";
 	}
 	
 	@RequestMapping(value = "/insertUserController.do")
 	public String insertUserController(UserVO vo, UserDAO userDAO,HttpSession session,Model model) {
 		int insertUserFlag = userDAO.insertUser(vo);
 		model.addAttribute("insertUserFlag", insertUserFlag);
-		return "login";
+		return "alertView";
 	}
 	
 	@RequestMapping(value = "/idDoubleCheck.do")
@@ -58,10 +76,10 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/deleteUserController.do")
-	public String handleRequest(UserVO vo, UserDAO userDAO,HttpSession session,Model model)  {
+	public String deleteUser(UserVO vo, UserDAO userDAO,HttpSession session,Model model)  {
 		int deleteUserFlag = userDAO.deleteUser(vo);
 		session.invalidate();
 		model.addAttribute("deleteUserFlag", deleteUserFlag);
-		return "login";
+		return "alertView";
 	}
 }

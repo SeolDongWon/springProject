@@ -1,4 +1,4 @@
-package com.mire.view.board;
+package backup;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

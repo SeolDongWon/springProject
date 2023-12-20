@@ -1,4 +1,4 @@
-package com.mire.view.board;
+package backup;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

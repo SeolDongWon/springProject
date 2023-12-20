@@ -7,11 +7,16 @@ create table myboard(
  cnt number(5) default 0
 );
 
+
+
 insert into myboard(seq, title, writer, content) values ((select nvl(max(seq), 0)+1 from board), '3', '2', '1');
 
+select * from myboard where title like '%%' and content like '%%';
 select * from myboard;
 commit;
+delete from myboard where title is null;
 delete from users;
+
 CREATE TABLE USERS(
 ID VARCHAR2(8) PRIMARY KEY,
 PASSWORD VARCHAR2(8),
@@ -29,3 +34,5 @@ select * from users where id='seol1';
 update users set role='User' where id='seol1';
 
 select * from users;
+select * from users where id='seol1' and password='11111';
+select * from users where id=('seol1' or 1='1');

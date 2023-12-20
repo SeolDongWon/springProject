@@ -12,30 +12,31 @@ import com.mire.biz.board.BoardVO;
 import com.mire.biz.common.JDBCUtil;
 
 @Repository("boardDAO")
-public class BoardDAO{
-	//  JDBC 관련 변수
+public class BoardDAO {
+	// JDBC 관련 변수
 	private Connection conn = null;
 	private PreparedStatement stmt = null;
 	private ResultSet rs = null;
 
 	// SQL 명령어들
 	private final String BOARD_INSERT = "insert into myboard(seq, title, writer, content)"
-							+ " values ((select nvl(max(seq), 0)+1 from myboard), ?, ?, ?)";
+			+ " values ((select nvl(max(seq), 0)+1 from myboard), ?, ?, ?)";
 	private final String BOARD_UPDATE = "update myboard set title=?, content=? where seq=?";
 	private final String BOARD_DELETE = "delete from myboard where seq=?";
 	private final String BOARD_GET = "select * from myboard where seq=?";
-	private final String BOARD_LIST = "select * from myboard order by seq desc";
+//	private final String BOARD_LIST = "select * from myboard order by seq desc";
+	private final String BOARD_LIST_TITLE = "select * from myboard where title like '%'||?||'%' order by seq desc";
+	private final String BOARD_LIST_CONTENT = "select * from myboard where content like '%'||?||'%' order by seq desc";
 
 	// CRUD 기능의 메소드 구현
 
-		// 글 등록
+	// 글 등록
 	public void insertBoard(BoardVO vo) {
 		System.out.println("===> JDBC로 insertBoard() 기능 처리");
 		System.out.println(vo.getTitle());
 		System.out.println(vo.getWriter());
 		System.out.println(vo.getContent());
-		
-		
+
 		try {
 			conn = JDBCUtil.getConnection();
 			stmt = conn.prepareStatement(BOARD_INSERT);
@@ -114,7 +115,13 @@ public class BoardDAO{
 		List<BoardVO> boardList = new ArrayList<>();
 		try {
 			conn = JDBCUtil.getConnection();
-			stmt = conn.prepareStatement(BOARD_LIST);
+			
+			if(vo.getSearchCondition().equals("TITLE")) {
+				stmt = conn.prepareStatement(BOARD_LIST_TITLE);
+			}else if(vo.getSearchCondition().equals("CONTENT")) {
+				stmt = conn.prepareStatement(BOARD_LIST_CONTENT);
+			}
+			stmt.setString(1, vo.getSearchKeyword());
 			rs = stmt.executeQuery();
 			while (rs.next()) {
 				BoardVO board = new BoardVO();
