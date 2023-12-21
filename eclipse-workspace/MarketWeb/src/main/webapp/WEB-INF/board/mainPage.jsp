@@ -1,11 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="include/header.jsp"%>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PageForm</title>
+  <%@ include file="layout/link.jsp" %>
+</head>
+
+<body onload="screanCheck();" onresize="screanCheck();">
+  <%@ include file="layout/screenSize.jsp" %>
+  <div class="container-md" id="bodyContainer">
+    <%@ include file="layout/header.jsp" %>
+    <main>
+      <%@ include file="layout/aside.jsp" %>
+      <section>
         <!-- 콘텐츠 시작 -->
+        <article class="container-md p-1 row ms-0">
         <div id="ad" style="width: 100%; height: 500px; background-color: antiquewhite;">
           asd
         </div>
-        <article class="container-md p-1 row ms-0">
           <div id="maintab1" class="col-sm-6 p-1">
             <div class="tab-pane active" id="notice">
               <h2 class="text-center"><a href="#notice" class="nav-link text-dark">공지사항</a></h2>
@@ -44,4 +60,9 @@
           </div>
         </article>
         <!-- 콘텐츠 끝-->
-      <%@ include file="include/footer.jsp"%>
+      </section>
+    </main>
+    <%@ include file="layout/footer.jsp" %>
+  </div>
+</body>
+</html>

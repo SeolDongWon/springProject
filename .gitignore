@@ -1,7 +1,7 @@
 # Created by https://www.toptal.com/developers/gitignore/api/windows,java,eclipse
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,java,eclipse
 
-### 캐시를 삭제하는 깃배시 명령어 ###
+### cache clear
 #git rm -r --cached .
 #git add .
 #git commit -m "cache clear"

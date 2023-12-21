@@ -29,9 +29,9 @@ public class BoardController {
 		return "board/mainPage";
 	}
 		
-		@RequestMapping(value = "/loginFrom.do")
-		public String includeTest() {
-			return "board/loginFrom";
+		@RequestMapping(value = "/loginPage.do")
+		public String loginPage() {
+			return "board/loginPage";
 		}
 	
 //	@ModelAttribute("conditionMap")

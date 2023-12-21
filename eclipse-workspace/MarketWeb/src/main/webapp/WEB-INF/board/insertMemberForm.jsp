@@ -13,7 +13,7 @@
 <body>
 	<div class="container">
 		<div class="inner">
-			<form action="insertMemberController.do" name="joinForm" method="post">
+			<form action="insertMemberCtrl.do" name="joinForm" method="post">
 				<table>
 					<tr>
 						<td><label for="id">아이디</label></td>

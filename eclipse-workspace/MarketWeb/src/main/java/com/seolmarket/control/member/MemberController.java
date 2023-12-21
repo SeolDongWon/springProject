@@ -16,9 +16,9 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 
-	@RequestMapping(value = "/insertMemberController.do")
-	public String insertMemberController(MemberVO memberVO, Model model) {
-		System.out.println("insertMemberController.do");
+	@RequestMapping(value = "/insertMemberCtrl.do")
+	public String insertMemberCtrl(MemberVO memberVO, Model model) {
+		System.out.println("insertMemberCtrl.do");
 		int insertMemberFlag = memberService.insertMember(memberVO);
 		model.addAttribute("insertMemberFlag", insertMemberFlag);
 		return "board/alertView";
@@ -32,10 +32,10 @@ public class MemberController {
 //		return"login";
 //	}
 
-	@RequestMapping(value = "/loginForm.do")
-	public String loginForm(MemberVO memberVO,Model model) {
-		return"board/loginForm";
-	}
+//	@RequestMapping(value = "/loginForm.do")
+//	public String loginForm(MemberVO memberVO,Model model) {
+//		return"board/loginForm";
+//	}
 
 	@RequestMapping(value = "/login.do")
 	public String login(MemberVO memberVO, Model model) {
