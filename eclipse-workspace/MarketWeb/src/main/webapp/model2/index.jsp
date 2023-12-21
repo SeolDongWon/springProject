@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>BoardWeb</title>
+<title>index</title>
 </head>
 <body>
 <div align="center">
- <a href="login.do">로그인</a><br>
+ <a href="login.jsp">로그인</a><br>
  <a href="insertUser.jsp">회원가입</a><br>
  <a href="getUserList.do">회원목록</a><br>
 

@@ -16,6 +16,7 @@ public class BoardServiceImpl implements BoardService {
 //	private LogAdvice2 log;
 
 	public BoardServiceImpl() {
+		System.out.println("BoardServiceImpl()");
 //		this.log = new LogAdvice2();
 	}
 
