@@ -1,11 +1,10 @@
-# Created by https://www.toptal.com/developers/gitignore/api/windows,java,eclipse
-# Edit at https://www.toptal.com/developers/gitignore?templates=windows,java,eclipse
+# Compiled class file
+*.class
 
 ### cache clear
 #git rm -r --cached .
 #git add .
 #git commit -m "cache clear"
-
 
 ### Folder ###
 zulu11/
@@ -13,10 +12,35 @@ sts-3.9.18.RELEASE/
 h2/
 apache-tomcat-9.0.84/
 
-### properties ###
-*.properties
+# Log file
+*.log
 
-#target
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+sts-3.9.18.RELEASE/
+zulu11/
+apache-tomcat-9.0.84/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+replay_pid*
+/.metadata/
+
+# Created by https://www.toptal.com/developers/gitignore/api/eclipse
+# Edit at https://www.toptal.com/developers/gitignore?templates=eclipse
 
 ### Eclipse ###
 .metadata
@@ -30,6 +54,8 @@ local.properties
 .settings/
 .loadpath
 .recommenders
+.classpath
+.project
 
 # External tool builders
 .externalToolBuilders/
@@ -84,62 +110,7 @@ local.properties
 # Spring Boot Tooling
 .sts4-cache/
 
-# Eclipse Core
-.project
+#*.properties
+*.properties
+# End of https://www.toptal.com/developers/gitignore/api/eclipse
 
-# IDT-specific (Eclipse Java Development Tools)
-.classpath
-
-### Java ###
-# Compiled class file
-*.class
-
-# Log file
-*.log
-
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
-
-
-### Windows ###
-# Windows thumbnail cache files
-Thumbs.db
-Thumbs.db:encryptable
-ehthumbs.db
-ehthumbs_vista.db
-
-# Dump file
-*.stackdump
-
-# Folder config file
-[Dd]esktop.ini
-
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
-
-# Windows Installer files
-*.cab
-*.msi
-*.msix
-*.msm
-*.msp
-
-# Windows shortcuts
-*.lnk
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-
-# End of https://www.toptal.com/developers/gitignore/api/windows,java,eclipse

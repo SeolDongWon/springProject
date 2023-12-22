@@ -4,6 +4,9 @@ import java.sql.Date;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
 public class BoardVO {
 	private int seq;
 	private String title;
@@ -16,20 +19,34 @@ public class BoardVO {
 	private String searchKeyword;
 	
 	private MultipartFile uploadFile;
+	private String fileName;
 	
 	
+	
+	public String getFileName() {
+		return fileName;
+	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+	
+	@JsonIgnore //원하지 않는 데이터는 json으로 받지 않는다
 	public MultipartFile getUploadFile() {
 		return uploadFile;
 	}
 	public void setUploadFile(MultipartFile uploadFile) {
 		this.uploadFile = uploadFile;
 	}
+	
+	@JsonIgnore
 	public String getSearchCondition() {
 		return searchCondition;
 	}
 	public void setSearchCondition(String searchCondition) {
 		this.searchCondition = searchCondition;
 	}
+	
+	@JsonIgnore
 	public String getSearchKeyword() {
 		return searchKeyword;
 	}

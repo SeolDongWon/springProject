@@ -11,7 +11,7 @@ public class JDBCUtil {
 //			Class.forName("org.h2.Driver");
 //			return DriverManager.getConnection("jdbc:h2:tcp://localhost/~/test", "sa", "");
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","hr","hr");
+			return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "hr", "hr");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

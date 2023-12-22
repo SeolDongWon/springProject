@@ -17,6 +17,7 @@
 			<tr>
 				<td bgcolor="orange" width="70">제목</td>
 				<td align="left"><input name="title" type="text" value="${board.title}"/></td>
+				${pageContext.request.contextPath}
 			</tr>
 			<tr>
 				<td bgcolor="orange">작성자</td>
@@ -24,7 +25,12 @@
 			</tr>
 				<tr>
 				<td bgcolor="orange">내용</td>
-				<td align="left"><textarea name="content" rows="10" cols="40">${board.content}</textarea></td>
+				<td align="left">
+				<%-- <img src ="img/${board.fileName}" alt="">${board.fileName} --%>
+				<img src ="resources/img/${board.fileName}" alt="">${board.fileName}
+				<!-- <img src ="img/newjeans.jpg" alt=""> -->
+				<!-- <img src ="/img/newjeans.jpg}" alt=""> -->
+				<textarea name="content" rows="10" cols="40">${board.content}</textarea></td>
 			</tr>
 			<tr>
 				<td bgcolor="orange">등록일</td>
@@ -43,7 +49,7 @@
 	</form>
 	<hr>
 	<a href="insertBoard.jsp">글등록</a>
-	<a href="deleteBoard.do?seq=${board.seq}">글삭제</a>
+	<a href="deleteBoard.do?seq=${board.seq}&fileName=${board.fileName}">글삭제</a>
 	<a href="getBoardList.do">글목록</a>
 </div>
 </body>

@@ -13,6 +13,7 @@
  <a href="getUserList.do">회원목록</a><br>
 
  <a href="getBoardList.do">게시판목록</a><br>
+ <a href="dataTransform.do">글 목록 변환 처리</a><br>
 </div>
 
 </body>

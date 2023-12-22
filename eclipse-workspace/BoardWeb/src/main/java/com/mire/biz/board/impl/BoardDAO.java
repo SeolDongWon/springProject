@@ -19,8 +19,8 @@ public class BoardDAO {
 	private ResultSet rs = null;
 
 	// SQL 명령어들
-	private final String BOARD_INSERT = "insert into myboard(seq, title, writer, content)"
-			+ " values ((select nvl(max(seq), 0)+1 from myboard), ?, ?, ?)";
+	private final String BOARD_INSERT = "insert into myboard(seq, title, writer, content,fileName)"
+			+ " values ((select nvl(max(seq), 0)+1 from myboard), ?, ?, ?,?)";
 	private final String BOARD_UPDATE = "update myboard set title=?, content=? where seq=?";
 	private final String BOARD_DELETE = "delete from myboard where seq=?";
 	private final String BOARD_GET = "select * from myboard where seq=?";
@@ -43,6 +43,7 @@ public class BoardDAO {
 			stmt.setString(1, vo.getTitle());
 			stmt.setString(2, vo.getWriter());
 			stmt.setString(3, vo.getContent());
+			stmt.setString(4, vo.getUploadFile().getOriginalFilename());
 			stmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -100,6 +101,7 @@ public class BoardDAO {
 				board.setContent(rs.getString("CONTENT"));
 				board.setRegDate(rs.getDate("REGDATE"));
 				board.setCnt(rs.getInt("CNT"));
+				board.setFileName(rs.getString("fileName"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -131,6 +133,7 @@ public class BoardDAO {
 				board.setContent(rs.getString("CONTENT"));
 				board.setRegDate(rs.getDate("REGDATE"));
 				board.setCnt(rs.getInt("CNT"));
+				board.setFileName(rs.getString("fileName"));
 				boardList.add(board);
 			}
 		} catch (Exception e) {
