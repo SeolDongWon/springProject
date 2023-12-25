@@ -19,7 +19,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>${org.springframework-version}</version>
+			<version>${org.springframework-version}</version> 
 			<exclusions>
 				<!-- Exclude Commons Logging in favor of SLF4j -->
 				<exclusion>
@@ -118,7 +118,7 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!--H2 Library https://mvnrepository.com/artifact/com.h2database/h2 -->
+		<!--H2 https://mvnrepository.com/artifact/com.h2database/h2 -->
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
@@ -130,22 +130,13 @@
 			<artifactId>ojdbc8</artifactId>
 			<version>21.9.0.0</version>
 		</dependency>
-		<!-- Mybatis -->
 		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
 			<version>3.5.7</version>
 		</dependency>
-
-
-
-
 	</dependencies>
-
-
-
-
 	<build>
 		<plugins>
 			<plugin>

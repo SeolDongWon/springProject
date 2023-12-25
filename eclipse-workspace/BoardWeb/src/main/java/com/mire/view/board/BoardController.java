@@ -52,7 +52,7 @@ public class BoardController {
 	public String deleteBoard(BoardVO vo) {
 		System.out.println("deleteBoard");
 		File file = new File(
-				"C:/DEV/eclipse-workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/BoardWeb/resources/img/"
+				"C:/DEV/springProject/eclipse-workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/BoardWeb/resources/img/"
 						+ vo.getFileName());
 		if (file.exists()) {
 			file.delete();
@@ -94,7 +94,7 @@ public class BoardController {
 			System.out.println("fileName : " + fileName);
 //			File file = new File("C:/DEV/fileSave/" + fileName);
 			File file = new File(
-					"C:/DEV/eclipse-workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/BoardWeb/resources/img/"
+					"C:/DEV/springProject/eclipse-workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/BoardWeb/resources/img/"
 							+ fileName);
 //			File file = new File("C:/DEV/eclipse-workspace/BoardWeb/src/main/webapp/resources/img/" + fileName);
 

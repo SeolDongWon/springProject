@@ -8,7 +8,7 @@ create table myboard(
  fileName varchar2(50)
 );
 desc myboard;
-select * from myboard;
+
 drop table myboard;
 
 

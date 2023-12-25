@@ -10,38 +10,26 @@
 
 	<!-- sql-map-config.xml에서 <typeAlias alias="board" type="com.mire.biz.board.BoardVO"/>을 
 		했기 때문에 paramerType에 board를 쓴다 -->
-	<insert id="insertBoard" parameterType="board">
-		insert into myboard(seq,
-		title, writer, content) values ((select
-		nvl(max(seq), 0)+1 from
-		myboard), #{title}, #{writer},#{content})
+	<insert id="insertBoard"
+		parameterType="com.mire.biz.board.BoardVO">
+		insert into myboard(seq, title, writer, content) 
+		values((select nvl(max(seq), 0)+1 from myboard), #{title}, #{writer},#{content})
 	</insert>
-
 	<update id="updateBoard" parameterType="board">
-		update myboard set
-		title=#{title},content=#{content} where seq=#{seq}
+		update myboard set title=#{title},content=#{content} where seq=#{seq}
 	</update>
-
 	<delete id="deleteBoard" parameterType="board">
-		delete myboard where
-		seq=#{seq}
+		delete myboard where seq=#{seq}
 	</delete>
 	<select id="getBoard" parameterType="board" resultType="board">
-		select *
-		from myboard where seq=#{seq}
+		select * from myboard where seq=#{seq}
 	</select>
-	<select id="getBoardLis_t" parameterType="board"
+	<select id="getBoardList_t" parameterType="board"
 		resultType="board">
-		select * from myboard where title like
-		'%'#{searchKeyword}'%' order by seq
-		desc
+		select * from myboard where title like '%'||#{searchKeyword}||'%' order by seq desc
 	</select>
 	<select id="getBoardList_c" parameterType="board"
 		resultType="board">
-		select * from myboard where CONTENT like
-		'%'#{searchKeyword}'%' order by seq
-		desc
+		select * from myboard where CONTENT like '%'||#{searchKeyword}||'%' order by seq desc
 	</select>
-
-
 </mapper>

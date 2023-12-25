@@ -2,21 +2,20 @@
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
-<conficuration>
-
+<configuration>
 	<!-- Properties 파일 설정 -->
 	<properties resource="db.properties" />
-	>
 
 	<!-- 로그파일을 화면에 출력 -->
 	<settings>
-		<setting name="loglmpl" value="STDOUT_LOGGING" />
+		<setting name="logImpl" value="STDOUT_LOGGING" />
 	</settings>
 
 	<!-- Alias 설정 -->
 	<typeAliases>
 		<typeAlias alias="board" type="com.mire.biz.board.BoardVO" />
 	</typeAliases>
+
 
 	<!-- DataSource 설정 -->
 	<environments default="development">
@@ -35,4 +34,4 @@
 	<mappers>
 		<mapper resource="Mappings/board-mapping.xml" />
 	</mappers>
-</conficuration>
+</configuration>
