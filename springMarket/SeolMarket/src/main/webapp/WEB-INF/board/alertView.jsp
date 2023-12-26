@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 
 <!-- 회원가입 확인 시작 -->
-<%-- <c:if test="${userInsertFlag==1 }">
+<c:if test="${userInsertFlag==1 }">
 	<script>
 		alert("가입성공");
 	</script>
@@ -46,7 +46,7 @@
 	<script>
 		alert("탈 퇴 실 패");
 	</script>
-</c:if> --%>
+</c:if>
 <!-- 회원탈퇴 확인 끝 -->
 
 

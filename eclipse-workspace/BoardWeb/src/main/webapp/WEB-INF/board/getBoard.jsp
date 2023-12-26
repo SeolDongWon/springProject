@@ -27,9 +27,16 @@
 				<td bgcolor="orange">내용</td>
 				<td align="left">
 				<%-- <img src ="img/${board.fileName}" alt="">${board.fileName} --%>
-				<img src ="resources/img/${board.fileName}" alt="">${board.fileName}
+				<img src ="resources/img/${board.fileName}" alt="">
+				resources/img/${board.fileName}
 				<img src ="${pageContext.request.contextPath}/resources/img/${board.fileName}" alt="">
-				${pageContext.request.contextPath}
+				${pageContext.request.contextPath}/resources/img/${board.fileName}
+				
+			<%-- 	밑에 두가지 경로는 이미지 출력 불가능
+				<img src ='${request.getSession().getServletContext().getRealPath("/resources/img/")}${board.fileName}' alt="">
+				${request.getSession().getServletContext().getRealPath("/resources/img/")}${board.fileName}
+				<img src ="${request.getSession().getServletContext().getRealPath()}/resources/img/${board.fileName}" alt="">
+				${request.getSession().getServletContext().getRealPath()}/resources/img/${board.fileName} --%>
 				<!-- <img src ="img/newjeans.jpg" alt=""> -->
 				<!-- <img src ="/img/newjeans.jpg}" alt=""> -->
 				<textarea name="content" rows="10" cols="40">${board.content}</textarea></td>

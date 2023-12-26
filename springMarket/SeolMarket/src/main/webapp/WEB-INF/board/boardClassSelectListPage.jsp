@@ -1,13 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="pageInclude/PageTop.jsp"%>
+<hr>
 <main class="p-0 m-0">
 	<section>
 		<article>
 			<div class="container-md">
 				<c:forEach var="boardClassVO" items="${boardClassList}">
 					<c:if test="${boardClassVO.state==1}">
-						<a href="boardSelectList.do?boardClassNo=${boardClassVO.no}" class="btn btn-primary m-1">${boardClassVO.name} 게시판</a>		
+						<div>
+							<a href="boardSelectList.do?boardClassNo=${boardClassVO.no}" class="btn btn-outline-dark m-1">${boardClassVO.name} 게시판</a>		
+						</div>
 					</c:if>
 				</c:forEach>
 			</div>

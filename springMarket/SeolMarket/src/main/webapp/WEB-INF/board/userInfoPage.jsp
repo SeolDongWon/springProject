@@ -11,7 +11,7 @@
 					<span>이름 : ${userVO.name} &nbsp;</span>
 					<span>연락처 : ${userVO.tel} &nbsp;</span>
 					<span>주소 : ${userVO.address} &nbsp;</span>
-					<c:if test="${userVO.name=='admin'}">
+					<c:if test="${userVO.id=='admin'}">
 						<a href="admin.do">adminPage</a>
 					</c:if>
 				</div>

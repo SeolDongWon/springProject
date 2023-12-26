@@ -6,6 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -70,7 +73,7 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "/getBoardList.do")
-	public String getBoardList(BoardVO vo, Model model) {
+	public String getBoardList(BoardVO vo, Model model,HttpServletRequest request) {
 		System.out.println("getBoardList");
 		// 검색정보 Null Check
 		if (vo.getSearchCondition() == null) {
@@ -85,20 +88,25 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "/insertBoard.do")
-	public String insertBoard(BoardVO vo) throws IllegalStateException, IOException {
+	public String insertBoard(BoardVO vo,HttpServletRequest request) throws IllegalStateException, IOException {
 		System.out.println("insertBoard");
+		System.out.println(request.getContextPath()); 
+		
 		MultipartFile uploadFile = vo.getUploadFile();
 		// 글 작성시 첨부한 파일이 있으면 서버저장장치에 저장한다
 		if (!uploadFile.isEmpty()) {
 			String fileName = uploadFile.getOriginalFilename();
 			System.out.println("fileName : " + fileName);
-//			File file = new File("C:/DEV/fileSave/" + fileName);
-			File file = new File(
-					"C:/DEV/springProject/eclipse-workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/BoardWeb/resources/img/"
-							+ fileName);
-//			File file = new File("C:/DEV/eclipse-workspace/BoardWeb/src/main/webapp/resources/img/" + fileName);
+//			System.out.println(request.getSession().getServletContext().getRealPath("/img"+fileName));
+			//파일저장 RealPath경로는 C드라이브부터 \BoardWeb 까지의 경로를 추출해준다
+			File file = new File(request.getSession().getServletContext().getRealPath("/resources/img/"+fileName));
+			// 경로를 직접 설정하는 파일저장/ metadata폴더에 저장해야 웹브라우저에서 꺼낼 수 있다
+//			File file = new File(
+//					"C:/DEV/springProject/eclipse-workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/BoardWeb/resources/img/"
+//							+ fileName);
 
 			uploadFile.transferTo(file);
+			vo.setFileName(vo.getUploadFile().getOriginalFilename());
 		}
 
 		boardService.insertBoard(vo);

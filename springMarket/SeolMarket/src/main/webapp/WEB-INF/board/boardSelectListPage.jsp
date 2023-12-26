@@ -9,13 +9,13 @@
 		<article>
 			<div>
 				<h2>${boardClassVO.name} 게시판</h2>
-				${boardClassVO.no}
-				<c:out value="${userVO.name}"></c:out>
-				<c:if test="${userVO.name=='admin'}">
+				<%-- ${boardClassVO.no}
+				${userVO.name} --%>
+				<c:if test="${userVO.id=='admin'}">
 					<form action="boardCategoryInsert.do" method="post">
-					<input type="hidden" name="boardClassNo" value="${boardClassVO.no}">
-						<span>카테고리이름</span> 
-						<input type="text" name="name">
+					<input type="hidden" name="boardClassNo" value="${boardClassVO.no}" >
+						<!-- <span>카테고리이름</span>  -->
+						<input type="text" name="name" placeholder="카테고리이름" required="required">
 						<input type="submit" value="카테고리생성" >		
 					</form>
 					<br>

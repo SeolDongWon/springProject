@@ -5,20 +5,30 @@
 
 <!-- 쿼리문 객체만든다. -->
 <mapper namespace="BoardDAO">
+	<!-- <resultMap type="board" id="boardResult">
+		<id property="seq" column="SEQ" />
+		<result property="title" column="TITLE" />
+		<result property="writer" column="WRITER" />
+		<result property="content" column="CONTENT" />
+		<result property="regDate" column="REGDATE" />
+		<result property="cnt" column="CNT" />
+	</resultMap> -->
+
 	<!-- 리턴 값없어서 # parameterType 쓴다. -->
 
 	<!-- sql-map-config.xml에서 <typeAlias alias="board" type="com.mire.biz.board.BoardVO"/>을 
 		했기 때문에 paramerType에 board를 쓴다 -->
 	<insert id="insertBoard">
-		<selectKey keyProperty="seq" resultType="int">
-			select board_seq.nextval as seq from dual
-		</selectKey>
+		<!-- <selectKey keyProperty="seq" resultType="int">
+			select
+			board_seq.nextval as seq from dual
+		</selectKey> -->
 		<![CDATA[
-		insert into myboard(seq, title, writer, content) 
-		values(#{seq},#{title}, #{writer} ,#{cnt})
+		insert into myboard(seq, title, writer, content,filename) 
+		values((select nvl(max(seq),0)+1 from myboard),#{title}, #{writer} ,#{content},#{fileName})
 		]]>
 	</insert>
-	
+
 	<update id="updateBoard" parameterType="board">
 	<![CDATA[	update myboard set title=#{title},content=#{content} where seq=#{seq}]]>
 	</update>
@@ -27,6 +37,10 @@
 	</delete>
 	<select id="getBoard" parameterType="board" resultType="board">
 		<![CDATA[select * from myboard where seq=#{seq}]]>
+	</select>
+	<select id="getBoardList" parameterType="board"
+		resultType="board">
+		<![CDATA[select * from myboard order by seq desc ]]>
 	</select>
 	<select id="getBoardList_t" parameterType="board"
 		resultType="board">

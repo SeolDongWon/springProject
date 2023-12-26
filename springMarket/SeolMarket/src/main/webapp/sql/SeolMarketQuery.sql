@@ -5,9 +5,10 @@ drop table user_tb;
 drop SEQUENCE user_no_seq;
 
 
---테이블 작성
+======================================테이블 작성
+===============================유저테이블
 create table user_tb(
-no number default user_no_seq.nextval  primary key ,
+no number primary key ,
 id varchar2(50) UNIQUE,
 password varchar2(50) not null,
 name varchar2(50) not null,
@@ -15,12 +16,43 @@ tel varchar2(50) not null,
 address varchar2(50) not null,
 regdate date default sysdate
 );
-CREATE SEQUENCE user_no_seq -- 시퀀스이름
-    START WITH 1 -- 시작을 1로 설정
-    INCREMENT BY 1 -- 증가 값을 1씩 증가
-    NOMAXVALUE -- 최대 값이 무한대
-    NOCACHE
-    NOCYCLE;
+CREATE SEQUENCE user_no_seq START WITH 1 INCREMENT BY 1 NOMAXVALUE NOCACHE NOCYCLE;
+===============================게시판목록 테이블
+create table board_class_tb(
+no number primary key,
+name varchar2(200) UNIQUE not null,
+state number DEFAULT 1 not NULL
+);
+CREATE SEQUENCE board_class_no_seq START WITH 1 INCREMENT BY 1 NOMAXVALUE NOCACHE NOCYCLE;
+===============================글 분류 테이블
+create table board_category_tb(
+no number primary key,
+board_class_no number REFERENCES board_class_tb(no) not null,
+name varchar2(200) not null,
+state number DEFAULT 1 not NULL
+);
+CREATE SEQUENCE board_category_no_seq START WITH 1 INCREMENT BY 1 NOMAXVALUE NOCACHE NOCYCLE;
+===============================게시글 테이블
+create table board_tb(
+ no number PRIMARY KEY,
+ user_no REFERENCES user_tb(no) not null,
+ board_class_no REFERENCES board_class_tb(no) not null,
+ board_category_name VARCHAR2(200) not null,
+ writer VARCHAR2(200) not null,
+ title VARCHAR2(200) not null,
+ content VARCHAR2(2000) not null,
+ regdate VARCHAR2(200) default to_char(sysdate, 'YYYY/MM/DD HH24:MI:SS'),
+ cnt number(5) default 0,
+ state number DEFAULT 1 not NULL
+);
+CREATE SEQUENCE board_no_seq START WITH 1 INCREMENT BY 1 NOMAXVALUE NOCACHE NOCYCLE;
+
+
+
+
+
+
+
 
 select to_char(sysdate, 'YYYY/MM/DD HH24:MI:SS') from dual;
 
@@ -35,18 +67,7 @@ insert into user_tb(id, password, name,tel,address)
 commit;
 
 drop table board_tb;
-create table board_tb(
- no number PRIMARY KEY,
- user_no REFERENCES user_tb(no) not null,
- board_class_no REFERENCES board_class_tb(no) not null,
- board_category_name VARCHAR2(200) not null,
- writer VARCHAR2(200) not null,
- title VARCHAR2(200) not null,
- content VARCHAR2(2000) not null,
- regdate VARCHAR2(200) default to_char(sysdate, 'YYYY/MM/DD HH24:MI:SS'),
- cnt number(5) default 0,
- state number DEFAULT 1 not NULL
-);
+
 
 
 update board_tb set user_no = 1;
@@ -56,7 +77,7 @@ alter table board_tb add constraint board_tb_user_no_fk FOREIGN key(user_no) REF
 alter table board_tb add class_no number default '2' REFERENCES board_class_tb(no) not null;
 
 
-CREATE SEQUENCE board_no_seq START WITH 1 INCREMENT BY 1 NOMAXVALUE NOCACHE NOCYCLE;
+
     
 insert into board_tb(no, title, writer, content) values (board_no_seq.nextval, 'test1', 'test2', 'test3');  
 select * from board_tb order by no desc;
@@ -72,12 +93,6 @@ select * from board_tb where
 commit;
 
 drop table board_class_tb;
-create table board_class_tb(
-no number primary key,
-name varchar2(200) UNIQUE not null,
-state number DEFAULT 1 not NULL
-);
-CREATE SEQUENCE board_class_no_seq START WITH 1 INCREMENT BY 1 NOMAXVALUE NOCACHE NOCYCLE;
 
 insert into board_class_tb (no,name) values(board_class_no_seq.nextval,'test');
 select * from board_class_tb order by no desc;
@@ -89,13 +104,6 @@ where no=4;
 
 
 drop table board_category_tb;
-create table board_category_tb(
-no number primary key,
-board_class_no number REFERENCES board_class_tb(no) not null,
-name varchar2(200) not null,
-state number DEFAULT 1 not NULL
-);
-CREATE SEQUENCE board_category_no_seq START WITH 1 INCREMENT BY 1 NOMAXVALUE NOCACHE NOCYCLE;
 
 select * from board_category_tb order by no desc;
 

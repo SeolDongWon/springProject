@@ -12,9 +12,7 @@
   		values (board_no_seq.nextval,#{userNo},#{boardClassNo},#{boardCategoryName},#{title},#{writer},#{content})
   	</insert>
   
-  
   	<select id="boardSelectList" parameterType="boardVO" resultType="boardVO">
-  		<!-- select * from board_tb where class_no=#{classNo} and category like '%'||#{category}||'%' order by no desc -->
   		select * from board_tb where board_class_no=#{boardClassNo} and board_category_name like '%'||#{boardCategoryName}||'%'  order by no desc
   	</select>
   	
@@ -47,7 +45,7 @@
   		select * from board_category_tb where board_class_no=#{boardClassNo} order by no desc
   	</select>
   	
-  		<update id="boardCategoryOnOff">
+  	<update id="boardCategoryOnOff">
   		update board_category_tb set state=
   		(SELECT  CASE  WHEN state = 1 THEN 0 ELSE 1 END AS result FROM board_category_tb where no=${no}) 
 			where no=${no}

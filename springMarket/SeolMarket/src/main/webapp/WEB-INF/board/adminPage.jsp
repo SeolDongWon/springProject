@@ -6,7 +6,7 @@
 		<article>
 			<div class="container-md">
 				<form action="boardClassInsert.do" method="post">
-					<input type="text" name="name" placeholder="게시판이름">
+					<input type="text" name="name" placeholder="게시판이름"  required="required">
 					<input type="submit" value="게시판생성" >		
 				</form>
 				<br>

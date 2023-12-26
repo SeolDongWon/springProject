@@ -11,7 +11,7 @@ import com.mire.biz.board.BoardVO;
 @Service("boardService") // "boardService"에 오토와이어
 public class BoardServiceImpl implements BoardService {
 	@Autowired
-	private BoardDAO boardDAO;
+	private BoardDAOMybatis boardDAO;
 //	private LogAdvice log;
 //	private LogAdvice2 log;
 
