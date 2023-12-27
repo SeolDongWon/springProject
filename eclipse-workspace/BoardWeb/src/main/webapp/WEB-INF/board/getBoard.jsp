@@ -27,10 +27,14 @@
 				<td bgcolor="orange">내용</td>
 				<td align="left">
 				<%-- <img src ="img/${board.fileName}" alt="">${board.fileName} --%>
+				<div>
 				<img src ="resources/img/${board.fileName}" alt="">
 				resources/img/${board.fileName}
+				</div>
+				<div>
 				<img src ="${pageContext.request.contextPath}/resources/img/${board.fileName}" alt="">
 				${pageContext.request.contextPath}/resources/img/${board.fileName}
+				</div>
 				
 			<%-- 	밑에 두가지 경로는 이미지 출력 불가능
 				<img src ='${request.getSession().getServletContext().getRealPath("/resources/img/")}${board.fileName}' alt="">

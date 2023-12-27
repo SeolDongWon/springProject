@@ -10,12 +10,12 @@
 	<!-- sql-map-config.xml에서 <typeAlias alias="board" type="com.mire.biz.board.BoardVO"/>을 
 		했기 때문에 paramerType에 board를 쓴다 -->
 	<insert id="insertBoard">
-		<selectKey keyProperty="seq" resultType="int">
-			select board_seq.nextval as seq from dual
+		<selectKey keyProperty="cnt" resultType="int">
+			select count(*) as cnt from myboard
 		</selectKey>
 		<![CDATA[
 		insert into myboard(seq, title, writer, content) 
-		values(#{seq},#{title}, #{writer} ,#{cnt})
+		values((select nvl(max(seq),0)+1 from myboard),#{cnt}, #{writer} ,#{content})
 		]]>
 	</insert>
 	
